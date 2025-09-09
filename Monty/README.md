@@ -1,8 +1,8 @@
 # Monty, the Bunny
 
-A hero mod, introducing Monty, a mage/healer who has been trapped in a mental cage. She goes on a journey to break out but has two very different ways of doing so overcoming the issues in a calm and focused way or forcefully breaking out of the cage through sheer will.
+A hero mod, introducing Monty, everyone's favorite evil bunny. They are a Scout/Healer specializing in Buffer and Evasion.
 
-This character was designed by @designer.
+This character was designed due to interest by @gchero.
 
 This currently does not include any events or quests related to Monty other than those available to all heroes or all heroes of a specific class.
 

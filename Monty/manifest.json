@@ -1,8 +1,8 @@
 {
   "name": "Monty_The_Bunny",
   "version_number": "0.1.0",
-  "website_url": "https://github.com/binbinmods/Monty",
-  "description": "New Hero Mod for Monty, the Bunny. A new hero that specializes in x, y, and z",
+  "website_url": "https://github.com/binbinmods/MontyHero",
+  "description": "New Hero Mod for Monty, the Bunny. A new Scout/Healer specialied in Evasion, Buffer, and Fast",
   "dependencies": [
     "meds-Obeliskial_Content-1.5.6",
     "meds-Obeliskial_Essentials-1.5.0"

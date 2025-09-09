@@ -73,21 +73,17 @@ namespace Monty
             if (_trait == trait0)
             {
                 // trait0:
+                // Evasive Hopping - Evasion +1. 
+                // Evasion on heroes and monsters can stack, but can also be consumed to prevent one instance of a curse.
+
                 LogDebug($"Handling Trait {traitId}: {traitName}");
-                _character.SetAuraTrait(_character, "evade", 1);
             }
 
 
             else if (_trait == trait2a)
             {
                 // trait2a
-                if (CanIncrementTraitActivations(traitId) && _castedCard.HasCardType(Enums.CardType.Defense))// && MatchManager.Instance.energyJustWastedByHero > 0)
-                {
-                    LogDebug($"Handling Trait {traitId}: {traitName}");
-                    // _character?.ModifyEnergy(1);
-                    // DrawCards(1);
-                    IncrementTraitActivations(traitId);
-                }
+
             }
 
 
@@ -95,15 +91,30 @@ namespace Monty
             else if (_trait == trait2b)
             {
                 // trait2b:
+                // At the start of your turn reduces the cost of your highest by cost card by 1 until discarded. Repeat for every 3 Fast on you.
                 LogDebug($"Handling Trait {traitId}: {traitName}");
-
+                int nFast = 5;
+                int nToRepeat = 1 + _character.GetAuraCharges("fast") / nFast;
+                for (int i = 0; i < nToRepeat; i++)
+                {
+                    CardData highestCost = GetRandomHighestCostCard(Enums.CardType.None, heroHand);
+                    ReduceCardCost(ref highestCost, _character, 1, isPermanent: false);
+                }
             }
 
             else if (_trait == trait4a)
             {
                 // trait 4a;
-
+                // Evasion +1. 
+                // When you apply Buffer, apply 3 times as much Block and Shield to the target.
                 LogDebug($"Handling Trait {traitId}: {traitName}");
+                if (_auxString == "buffer" && _target != null && _target.Alive)
+                {
+                    int multiplier = 3;
+                    int nToApply = multiplier * _auxInt;
+                    _target.SetAuraTrait(_character, "block", nToApply);
+                    _target.SetAuraTrait(_character, "shield", nToApply);
+                }
             }
 
             else if (_trait == trait4b)
@@ -147,24 +158,49 @@ namespace Monty
             string traitOfInterest;
             switch (_acId)
             {
+                // trait0:
+                // Evasion on heroes and monsters can stack, 
+                // but can also be consumed to prevent one instance of a curse.
+
                 // trait2a:
+                //Bunny Fur - Buffer +1. 
+                // Buffer on heroes can stack and prevents 2 instances of a curse per charge.
 
                 // trait2b:
+                // Fast on you can stack. 
+
 
                 // trait 4a;
 
                 // trait 4b:
+                // Fast +1. Buffer on heroes increases all damage by 1 per charge.
 
                 case "evasion":
-                    traitOfInterest = trait2a;
-                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.ThisHero))
+                    traitOfInterest = trait0;
+                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Global))
                     {
+                        __result.PreventedAuraCurseStackPerStack = 1;
+                        __result.GainCharges = true;
                     }
                     break;
-                case "stealth":
+                case "buffer":
+                    traitOfInterest = trait2a;
+                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Heroes))
+                    {
+                        __result.GainCharges = true;
+                        __result.PreventedAuraCurseStackPerStack += 1;
+                    }
+                    traitOfInterest = trait4b;
+                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Heroes))
+                    {
+                        __result = AtOManager.Instance.GlobalAuraCurseModifyDamage(__result, Enums.DamageType.All, 0, 1, 0);
+                    }
+                    break;
+                case "fast":
                     traitOfInterest = trait2b;
                     if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Heroes))
                     {
+                        __result.GainCharges = true;
                     }
                     break;
             }
