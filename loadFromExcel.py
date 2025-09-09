@@ -119,6 +119,8 @@ def handle_traits(xls:pd.ExcelFile):
     vars_to_set = ["ID","TraitName","Description","Activation","TraitCard","TimesPerTurn"]
     for index, row in df.iterrows():
         for var in vars_to_set:
+            if var == "Activation" and row[var] == "":
+                row[var] = "None"
             data[var] = row[var]
     
         # json_filename = sheet_name 

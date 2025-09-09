@@ -1,0 +1,15 @@
+{
+    "BaseSkin": true,
+    "PerkLevel": 0,
+    "SkinGO": "skinmonty",
+    "SkinID": "bunnybase",
+    "SkinName": "Default",
+    "SkinOrder": 0,
+    "SkinSubclass": "bunny",
+    "Sku": "",
+    "SpritePortrait": "montyPortrait",
+    "SpritePortraitGrande": "montyPortraitGrande",
+    "SpriteSilueta": "montySilueta",
+    "SpriteSiluetaGrande": "montySiluetaGrande",
+    "SteamStat": ""
+}

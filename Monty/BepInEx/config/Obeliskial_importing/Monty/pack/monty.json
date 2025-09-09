@@ -1,0 +1,15 @@
+{
+    "Card0": "bunnybunnyhops",
+    "Card1": "hitandrun",
+    "Card2": "barrier",
+    "Card3": "songofcelerity",
+    "Card4": "protectfromevil",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "scout",
+    "PackID": "monty",
+    "PackName": "Monty",
+    "PerkList": [],
+    "RequiredClass": "bunny"
+}
