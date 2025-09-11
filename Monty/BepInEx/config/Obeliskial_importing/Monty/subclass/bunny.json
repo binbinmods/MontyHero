@@ -8,7 +8,7 @@
         "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"dispelmagic\"\n}",
         "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"songofcelerity\"\n}",
         "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"protectfromevil\"\n}",
-        "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"bunnybunnyhops\"\n}"
+        "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"bunnybunnyhopping\"\n}"
     ],
     "ChallengePack0": "protector",
     "ChallengePack1": "bard",
@@ -67,7 +67,7 @@
     "Trait4A": "bunnytrait4a",
     "Trait4B": "bunnytrait4b",
     "CardsSingularity": [
-        "bunnybunnyhops",
+        "bunnybunnyhopping",
         "hitandrun",
         "barrier",
         "blur",
