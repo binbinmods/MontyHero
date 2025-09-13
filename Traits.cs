@@ -188,6 +188,7 @@ namespace Monty
                     if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Heroes))
                     {
                         __result.GainCharges = true;
+                        __result.MaxCharges = __result.MaxMadnessCharges = 10;
                         __result.PreventedAuraCurseStackPerStack += 1;
                     }
                     traitOfInterest = trait4b;
