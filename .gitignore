@@ -368,3 +368,5 @@ FodyWeavers.xsd
 *.py
 !ship_mod.py
 !loadFromExcel.py
+
+.env

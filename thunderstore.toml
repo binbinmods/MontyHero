@@ -1,0 +1,33 @@
+[config]
+schemaVersion = "0.1.0"
+
+[package]
+namespace = "Binbin"
+name = "Monty"
+versionNumber = "0.1.0"
+description = "Hero Mod for Monty, the Bunny. A new Scout/Healer specialied in Evasion, Buffer, and Fast"
+websiteUrl = "https://github.com/binbinmods/MontyHero"
+containsNsfwContent = false
+
+[package.dependencies]
+meds-Obeliskial_Essentials = "1.5.1"
+
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./build"
+
+[[build.copy]]
+source = "./Monty"
+target = ""
+
+
+
+[publish]
+repository = "https://thunderstore.io"
+communities = [ "across-the-obelisk", ]
+[publish.categories]
+across-the-obelisk = [ "mods", ]
+
+
